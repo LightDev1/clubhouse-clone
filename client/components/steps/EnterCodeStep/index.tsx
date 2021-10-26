@@ -33,7 +33,7 @@ export const EnterCodeStep = () => {
       await Axios.get('/todos');
       router.push('/rooms');
     } catch (error) {
-      alert('Ошибка при активации!');
+      alert('Ошибка при активации');
     }
 
     setIsLoading(false);
@@ -43,7 +43,7 @@ export const EnterCodeStep = () => {
     <div className={styles.block}>
       {!isLoading ? (
         <>
-          <StepInfo icon="/static/numbers.png" title="Enter your activate code" />
+          <StepInfo icon="/static/img/numbers.png" title="Enter your activate code" />
           <WhiteBlock className={clsx('m-auto mt-30', styles.whiteBlock)}>
             <div className={clsx('mb-30', styles.codeInput)}>
               {codes.map((code, index) => (
@@ -60,7 +60,7 @@ export const EnterCodeStep = () => {
             </div>
             <Button onClick={onSubmit} disabled={nextDisabled}>
               Next
-              <img className="d-ib ml-10" src="/static/arrow.svg" />
+              <img className="d-ib ml-10" src="/static/img/arrow.svg" />
             </Button>
           </WhiteBlock>
         </>

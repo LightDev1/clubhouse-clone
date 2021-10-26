@@ -1,18 +1,19 @@
 import clsx from 'clsx';
+import React, { useContext } from 'react';
+
 import { WhiteBlock } from '../../WhiteBlock';
 import { Button } from '../../Button';
 import { StepInfo } from '../../StepInfo';
-
-import styles from './TwitterStep.module.scss';
-import React from 'react';
 import { MainContext } from '../../../pages';
 
+import styles from './TwitterStep.module.scss';
+
 export const TwitterStep: React.FC = () => {
-  const { onNextStep } = React.useContext(MainContext);
+  const { onNextStep } = useContext(MainContext);
 
   return (
     <div className={styles.block}>
-      <StepInfo icon="/static/connect.png" title="Do you want import info from Twitter?" />
+      <StepInfo icon="/static/img/connect.png" title="Do you want import info from Twitter?" />
       <WhiteBlock className={clsx('m-auto mt-40', styles.whiteBlock)}>
         <div className={styles.avatar}>
           <b>AD</b>
@@ -31,9 +32,9 @@ export const TwitterStep: React.FC = () => {
         </div>
         <h2 className="mb-40">Archakov Dennis</h2>
         <Button onClick={onNextStep}>
-          <img src="/static/twitter.svg" alt="Twitter logo" className={styles.twitterLogo} />
+          <img src="/static/img/twitter.svg" alt="Twitter logo" className={styles.twitterLogo} />
           Import from Twitter
-          <img className="d-ib ml-10" src="/static/arrow.svg" />
+          <img className="d-ib ml-10" src="/static/img/arrow.svg" />
         </Button>
         <div className="link mt-20 cup d-ib">Enter my info manually</div>
       </WhiteBlock>

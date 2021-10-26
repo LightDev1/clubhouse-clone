@@ -1,15 +1,17 @@
 import clsx from 'clsx';
+import React, { useContext } from 'react';
+
 import { WhiteBlock } from '../../WhiteBlock';
 import { Button } from '../../Button';
 import { StepInfo } from '../../StepInfo';
-
-import styles from './EnterNameStep.module.scss';
-import React from 'react';
 import { MainContext } from '../../../pages';
 
+import styles from './EnterNameStep.module.scss';
+
+
 export const EnterNameStep = () => {
+  const { onNextStep } = useContext(MainContext);
   const [inputValue, setInputValue] = React.useState<string>('');
-  const { onNextStep } = React.useContext(MainContext);
 
   const nextDisabled = !inputValue;
 
@@ -17,14 +19,10 @@ export const EnterNameStep = () => {
     setInputValue(event.target.value);
   };
 
-  const onClickNextStep = () => {
-    onNextStep();
-  };
-
   return (
     <div className={styles.block}>
       <StepInfo
-        icon="/static/man.png"
+        icon="/static/img/man.png"
         title="What’s your full name?"
         description="People use real names on Clubhouse :) Thnx!"
       />
@@ -37,9 +35,9 @@ export const EnterNameStep = () => {
             placeholder="Enter fullname"
           />
         </div>
-        <Button disabled={nextDisabled} onClick={onClickNextStep}>
+        <Button onClick={onNextStep} disabled={nextDisabled}>
           Next
-          <img className="d-ib ml-10" src="/static/arrow.svg" />
+          <img className="d-ib ml-10" src="/static/img/arrow.svg" />
         </Button>
       </WhiteBlock>
     </div>
